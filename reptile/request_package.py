@@ -1,18 +1,19 @@
+import os
 import random
+import time
+
 import requests
 from lxml import etree
 
-
-def getHTML(url,xpathstr,headerstype=False,proxytype=False):
+# 通过链接获取页面
+def getRequest(url,headerstype=False,proxytype=False):
     '''
-        # 获取页面html
-        :param url:             页面url地址
-        :param headerstype:     是否添加请求头
-        :param proxytype:       是否添加代理
-        :param xpathstr:        xpathstr
-        :return:
-        '''
-
+    # 通过链接获取页面
+    :param url:             页面url地址
+    :param headerstype:     是否添加请求头
+    :param proxytype:       是否添加代理
+    :return:
+    '''
     if headerstype:
         pc_agent = [
             "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
@@ -58,6 +59,20 @@ def getHTML(url,xpathstr,headerstype=False,proxytype=False):
 
 
     res = requests.get(url, headers=headers, proxies=proxy)
+    return res
+
+def getHTML(url,xpathstr,headerstype=False,proxytype=False):
+    '''
+    # 获取页面html
+    :param url:             页面url地址
+    :param headerstype:     是否添加请求头
+    :param proxytype:       是否添加代理
+    :param xpathstr:        xpathstr
+    :return:
+    '''
+    # 通过链接获取页面数据
+    res = getRequest(url, headerstype, proxytype)
+
     # 自动获取解码格式
     res.encoding = res.apparent_encoding
     data = res.text
@@ -66,3 +81,26 @@ def getHTML(url,xpathstr,headerstype=False,proxytype=False):
     # 获取数据
     datastr_list = tree.xpath(xpathstr)
     return datastr_list
+
+
+
+
+# 将获取的图片资源存储到本地
+def store_data(path,data_list):
+    '''
+    # 将获取的图片资源存储到本地
+    :param path:             需要存储的路径
+    :param data_list:        数据 img[0]:名称  img[1]:地址
+    :return:
+    '''
+    # 判断路径是否存在，不存在则创建
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    for img in data_list:
+        # 进行图片的请求   注意 要加上 ‘res = ’ 否则图片打不开
+        res = getRequest(img['url'], True, True)
+        with open(os.path.join(path, str(img['name']) + '.jpg'), 'wb') as f:
+            f.write(res.content)
+        time.sleep(0.5)
+    return 'success'

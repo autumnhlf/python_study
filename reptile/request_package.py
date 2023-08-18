@@ -59,6 +59,8 @@ def getRequest(url,headerstype=False,proxytype=False):
 
 
     res = requests.get(url, headers=headers, proxies=proxy)
+    # 自动获取解码格式
+    res.encoding = res.apparent_encoding
     return res
 
 def getHTML(url,xpathstr,headerstype=False,proxytype=False):
@@ -73,8 +75,7 @@ def getHTML(url,xpathstr,headerstype=False,proxytype=False):
     # 通过链接获取页面数据
     res = getRequest(url, headerstype, proxytype)
 
-    # 自动获取解码格式
-    res.encoding = res.apparent_encoding
+
     data = res.text
     # print(data)
     tree = etree.HTML(data)

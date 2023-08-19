@@ -1,7 +1,7 @@
 import os
 import random
 import time
-
+import re
 from bs4 import BeautifulSoup
 
 from reptile.request_package import getRequest, getHTML
@@ -42,7 +42,8 @@ def get_book(soup):
     for i in div:
         name = i.get_text().replace('\n', '')
         href = 'https://www.shicimingju.com' + i.a['href']
-        book_dict[name] = href
+        text = re.sub('《|》', '', name)
+        book_dict[text] = href
     return book_dict
 
 def get_book_detail(book_html):
@@ -98,14 +99,17 @@ def save_contents(title,book_contents,book_path):
 if __name__ == '__main__':
     url = 'https://www.shicimingju.com/bookmark/sidamingzhu.html'
     books = get_book(get_html(url))
-    for book in books:
-        book_url = books[book]
+    for book_name in books:
+        book_url = books[book_name]
         book_html = get_html(book_url)
         book_dict = get_book_detail(book_html)
         for title,url in book_dict.items():
             # 获取具体章节内容
             contents = get_book_chapter_detail(title,get_html(url))
-            save_contents(title,contents,'text')
+            # 存储路径
+            path = 'text/'+book_name
+            # 下载
+            save_contents(title,contents,path)
             time.sleep(random.randint(1,3))
 
 

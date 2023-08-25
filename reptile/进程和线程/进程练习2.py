@@ -1,3 +1,4 @@
+import os
 import time
 import requests
 from multiprocessing import Queue,Process
@@ -40,8 +41,46 @@ def download_img(q):
             except Exception as e:
                 print(e)
 
-def download_one():
-    pass
+def download_one(s):
+    '''
+    下载
+    :param s:
+    :return:
+    '''
+    resp = requests.get(s,headers=headers)
+    file_name = s.split('/')[-1]
+    # 创建文件夹  img
+    path = 'img/斗图网'
+
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    with open(f"img/{file_name}",mode="wb") as f:
+        f.write(resp.content)
+    print("一张图片下载完成！！！",file_name)
+    resp.close()
+
+if __name__ == '__main__':
+    t1 = time.time()
+    # 两个进程必须使用同一队列，否则数据传输不了
+    q = Queue()
+    p_list = []
+    for i in range(1,11):
+        url = f'https://www.pkdoutu.com/photo/list/?page={i}'
+        p = Process(target=get_img_src,args=(url,q))
+        p_list.append(p)
+    for p in p_list:
+        p.start()
+    p2 = Process(target=download_img,args=(q,))
+    p2.start()
+    for a in p_list:
+        p.join()
+    p2.join()
+
+    t2 = time.time()
+
+    print((t2-t1)/60)
+
 
 
 

@@ -14,9 +14,9 @@ def get_page_source(url):
     :return:
     '''
     headers = {
-        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50"
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
     }
-    response = requests.get(url,headers=headers)
+    response = requests.get(url, headers=headers)
     response.encoding='UTF-8'
     return response.text
 
@@ -70,11 +70,9 @@ async def aio_download_one(chapter_url, signal):
             print(chapter_url,'下载faild,正在重试')
     return chapter_url
 
-    
-    pass
 
 
-def aio_download(href_list):
+async def aio_download(href_list):
     tasks = []
     # 开启并发控制10
     semapore = asyncio.Semaphore(10)
@@ -94,3 +92,5 @@ if __name__ == '__main__':
     loop.run_until_complete(aio_download(href_list))
     loop.close()
 
+# D:\Personal\git\python\study\reptile\协程\guichuideng
+# D:\Personal\git\python\study\reptile\协程\guichuideng/huangpizifen/2668/第34章

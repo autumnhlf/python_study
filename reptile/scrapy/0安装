@@ -1,0 +1,33 @@
+
+安装
+pip install scrapy==2.5.1
+
+
+pip uninstall Twisted
+pip install Twisted==22.4.0
+
+pip uninstall cryptography
+pip install cryptography==36.0.2
+
+
+pip uninstall pyOpenSSL
+pip install pyOpenSSL==22.0.0
+
+scrapy version --verbose
+
+工作流程：
+1需要创建项目
+    scrapy startproject 项目名
+2进去到项目目录
+    cd 项目名
+3生成spider
+    scrapy genspider 爬虫的名字 网站的域名
+4调整spider
+    给出start_urls
+    以及如何解析数据 parse
+5调整setting配置文件
+    取消robots协议
+    取消日志信息（留下有用的信息）调整日志级别
+6运行scrapy程序
+    scrapy crawl 爬虫的名字
+

@@ -14,12 +14,11 @@ NEWSPIDER_MODULE = 'youxi.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36' #User-Agent
 
 # Obey robots.txt rules
-# robots协议 false 不遵守
-ROBOTSTXT_OBEY = False
-LOG_LEVEL = 'WARNING'
+ROBOTSTXT_OBEY = False  # robots协议 false 不遵守
+LOG_LEVEL = 'WARNING' #只有警告及警告以上的日志才会显示
 
 # scrapy默认是协程任务
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -28,8 +27,7 @@ LOG_LEVEL = 'WARNING'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# 访问的延迟时间
-#DOWNLOAD_DELAY = 3
+#DOWNLOAD_DELAY = 3  # 访问的延迟时间
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -66,9 +64,10 @@ LOG_LEVEL = 'WARNING'
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'youxi.pipelines.YouxiPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   #  优先级
+   'youxi.pipelines.YouxiPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

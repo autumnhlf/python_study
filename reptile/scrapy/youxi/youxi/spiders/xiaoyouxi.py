@@ -13,4 +13,19 @@ class XiaoyouxiSpider(scrapy.Spider):
 
     # 下面的parse是默认的解析数据位置 -》主要负责第一个url的解析工作
     def parse(self, response):
-        print(response)
+        # print(response.text)
+
+        li_list = response.xpath("//div[@class='tm_fun h_3 ']/ul/li")
+        data_list=[]
+        for i in li_list:
+            name = i.xpath('./a/text()').extract_first()
+            img = i.xpath('./a/img/@lz_src').extract_first()
+            # data_list.append(name,'https:'+img)
+            # 可以返回数据，而不打断函数的执行 比return好
+            yield {
+                "name":name,
+                "imgurl":'https:'+img
+            }
+
+
+

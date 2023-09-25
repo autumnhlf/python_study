@@ -1,0 +1,10 @@
+1 request默认用的是http/1.1 有些网站会检测   如果用到http2，需要安装httpx
+pip install httpx
+
+python代码
+缺少能动态运行js代码的东西 pyexecjs
+pip install pyexecjs
+需要准备一个良好js运行的引擎 NodeJS(V8)
+import execjs
+print(execjs.get())
+返回：ExternalRuntime(Node.js (V8)) 就说明安装好了

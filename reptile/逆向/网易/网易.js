@@ -93,16 +93,6 @@ var bvh7a = function(chL9C) {
         return m8e.join("")
     };
 
-var i8a = {
-    ids: '[2083785152]',
-    level: 'standard',
-    encodeType: 'aac',
-    csrf_token: ''
-}
-var e = bvh7a(["流泪", "强"])
-var f = bvh7a(md)
-var g = bvh7a(["爱心", "女孩", "惊恐", "大笑"])
-
 
 
 function RSAKeyPair(a, b, c) {
@@ -474,13 +464,33 @@ var CryptoJS = require("crypto-js")
         d = new RSAKeyPair(b,"",c),
         e = encryptedString(d, a)
     }
-function d(i8a, e, f, g) {
+function d(d, e, f, g) {
     var h = {}
       , i = a(16);
     return h.encText = b(d, g),
     h.encText = b(h.encText, i),
     h.encSecKey = c(i, e, f),
     h
-}
+    }
 
-console.log(d(i8a, e, f, g))
+var i8a = {
+    ids: '[2083785152]',
+    level: 'standard',
+    encodeType: 'aac',
+    csrf_token: ''
+}
+console.log( d(JSON.stringify(i8a),
+        bvh7a(["流泪", "强"]),
+        bvh7a(md),
+        bvh7a(["爱心", "女孩", "惊恐", "大笑"])) )
+
+// var e = bvh7a(["流泪", "强"])
+// var f = bvh7a(md)
+// var g = bvh7a(["爱心", "女孩", "惊恐", "大笑"])
+
+function fnOne(i8a){
+    return d(JSON.stringify(i8a),
+        bvh7a(["流泪", "强"]),
+        bvh7a(md),
+        bvh7a(["爱心", "女孩", "惊恐", "大笑"]))
+}

@@ -11,34 +11,6 @@ var dier = [1, "", 0, "he", "ad", 29, "\x180G\x1f", "?>=<;:\\\\/,+", "ng", "to",
     var u, c, s;
     u = c = s = t = dier;
 
-function v() {
-    var n = arguments[s[0]];
-    if (!n)
-        return r[0];
-    for (var t = u[1], o = a[1], i = c[2]; i < n.length; i++) {
-        var v = n.charCodeAt(i)
-          , f = v ^ o;
-        o = v,
-        t += e[2].fromCharCode(f)
-    }
-    return t
-}
-function ot() {
-    var n, t, e;
-    n = t = e = c;
-    var a, o, i;
-    a = o = i = r;
-    var u = arguments[a[52]];
-    if (!u)
-        return o[0];
-    for (var s = a[0], v = n[267], f = o[200], l = t[2]; l < u.length; l++) {
-        var p = u.charCodeAt(l);
-        f = (f + t[0]) % v.length,
-        p ^= v.charCodeAt(f),
-        s += i[2].fromCharCode(p)
-    }
-    return s
-}
 var qn = function() {
     var n, t, r, a;
     n = t = r = a = diyi;
@@ -51,19 +23,18 @@ var qn = function() {
         var a = o[102]
           , i = e[103];
         this[n[76]] = r;
-        for (var u = t[52], c = r[a + 4 + i]; u < c; u++)
+        for (var u = t[52], c = r["length"]; u < c; u++)
             this[u] = t[52]
     }
-    return l[e[104]][5 + 6 + 7 + u] = function() {
-        for (var a = e[105], u = this[a + y], c = [], s = -e[0], v = o[2], f = u[r[56]]; v < f; v++)
+    l.prototype.toBuffer = function() {
+        for (var a = e[105], u = this[a + "ileds"], c = [], s = -e[0], v = o[2], f = u[r[56]]; v < f; v++)
             for (var l = this[v], p = u[v], d = s += p; c[d] = l & parseInt(t[77], n[78]),
             --p != r[52]; )
                 --d,
                 l >>= parseInt(n[79], i[106]);
         return c
-    }
-    ,
-    l[v(t[80], t[81], 13)][ot(i[107])] = function(n) {
+    };
+    l.prototype.decodeBuffer = function(n) {
         for (var r = e[8], a = this[ot(e[108], e[109])], o = t[52], u = e[2], s = a[c + r + f]; u < s; u++) {
             var v = a[u]
               , l = i[2];
@@ -72,224 +43,191 @@ var qn = function() {
             } while (--v > t[52]);
             this[u] = l >>> i[2]
         }
+    };
+    return l;
+}();
+function v() {
+    var n = arguments[s[0]];
+    if (!n)
+        return r[0];
+    for (var t = u[1], o = a[1], i = c[2]; i < n.length; i++) {
+        var v = n.charCodeAt(i)
+          , f = v ^ o;
+        o = v,
+        t += e[2].fromCharCode(f)
     }
-    ,
-    l
-}()
-function JnServerTimeNow() {
-    var n = new s[52];
-    return typeof TOKEN_SERVER_TIME == s[153] ? r[52] : (time = parseInt(TOKEN_SERVER_TIME),
-    time)
+    return t
+};
+var En = a[8]
+var An = v(a[35], s[49])
+function ot() {
+    var n, t, e, c;
+    n = t = e = c = dier;
+    var a, o, i, r;
+    a = o = i = r = diyi;
+    var u = arguments[a[52]];
+    if (!u)
+        return o[0];
+    for (var s = a[0], v = n[267], f = o[200], l = t[2]; l < u.length; l++) {
+        var p = u.charCodeAt(l);
+        f = (f + t[0]) % v.length,
+        p ^= v.charCodeAt(f),
+        s += i[2].fromCharCode(p)
+    }
+    return s
 }
-function Wn() {
-    return arguments[u[0]].split(e[0]).reverse().join(c[1])
+function JnStrhash() {
+    n = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+    var t, e, a, s;
+    t = e = a = s = dier;
+    var o, i, u, r;
+    o = i = u = r = diyi;
+    for (var c = u[52], v = a[2], f = n[o[56]]; v < f; v++)
+        c = (c << a[123]) - c + n.charCodeAt(v),
+        c >>>= o[52];
+    return c
 }
-// var Fn = r[45], Yn = Wn(c[58], e[46]), jn = v(s[59], u[60]), Hn = Wn(r[47], s[61]), $n = s[62], Un = s[63], Vn = u[2], Xn = [new u[27](r[48]), new u[27](c[64])], Gn = [new e[47](ot(a[49])), new u[27](ot(a[50], u[65]))], Kn = c[66]["he" + "ad"] || r[51].getElementsByTagName(p + d)[r[52]], Qn;
-var Qn = {}
+function JnTimeNow() {
+    var n = new e[105];
+    try {
+        return time = s[52].now(),
+        time / parseInt(c[131], a[88]) >>> c[2]
+    } catch (t) {
+        return time = n.getTime(),
+        time / parseInt(s[121], s[84]) >>> r[52]
+    }
+}
+function at() {
+    var n, t, r;
+    n = t = r = u;
+    var a, o, i;
+    a = o = i = e;
+    var c = arguments[o[52]];
+    if (!c)
+        return t[1];
+    for (var s = o[0], v = o[1], f = a[52]; f < c.length; f++) {
+        var l = c.charCodeAt(f)
+          , p = l ^ v;
+        v = v * f % n[222] + o[200],
+        s += i[2].fromCharCode(p)
+    }
+    return s
+}
+
+zn = {};
 !function(n) {
-    n[e[53]] = s[67];
-    function t(n) {
-        var t = r[51][u[68]]
-          , o = u[69] + n + s[70]
-          , i = t.indexOf(o);
-        if (i == -e[54]) {
-            if (o = n + c[70],
-            t.substr(r[52], o.length) != o)
-                return;
-            i = a[52]
-        }
-        var f = i + o[v(u[71], s[72])]
-          , l = t.indexOf(r[55], f);
-        return l == -a[54] && (l = t[a[56]]),
-        t.substring(f, l)
-    }
-    n[a[57]] = f;
-    function o(n, t, a, o, i) {
-        var c = n + r[58] + t;
-        o && (c += e[59] + o),
-        i && (c += v(Jn, u[73], s[74]) + i),
-        a && (c += u[75] + a),
-        u[66][u[68]] = c
-    }
-    n[s[76]] = t;
-    function i(n, t, r) {
-        this.setCookie(n, u[1], u[77], t, r)
-    }
-    n[s[78]] = o;
-    function f() {
-        var t = a[60];
-        this.setCookie(t, u[67]),
-        this.getCookie(t) || (n[r[53]] = e[61]),
-        this.delCookie(t)
-    }
-    n[Wn('on', r[62], c[79])] = i
-}(Qn);
-var Zn;
-!function(n) {
-    var t = u[80], o = v("sted", s[81], u[82]), i = s[67], f, l = u[83][Wn(u[84], e[63])], p, d;
-    function g(n) {
-        var t = j;
-        return t = dn,
-        i ? y(n) : f ? w(n) : void u[2]
+    var t = s[13]
+      , o = c[53]
+      , i = r[83]
+      , f = r[84]
+      , l = s[110]
+      , d = r[85]
+      , h = r[86];
+    function g(n, a, o, i, u) {
+        for (var c = s[13], v = r[87], f = n[s[111]]; a < f; )
+            o[i++] = n[a++] ^ u & parseInt(c + v + t + "11", r[88]),
+            u = ~(u * parseInt(e[89], e[82]))
     }
     function w(n) {
-        E(function() {
-            return n = R(n),
-            f.getAttribute(n)
-        })()
-    }
-    function m() {
-        try {
-            return !!(o in s[83] && s[83][o])
-        } catch (n) {
-            return void u[2]
+        for (var t = c[112], i = r[52], v = n[s[111]], f = []; i < v; ) {
+            var l = n[i++] << parseInt("1" + t, c[113]) | n[i++] << e[82] | n[i++];
+            f.push(m.charAt(l >> parseInt(e[90], e[82])), m.charAt(l >> parseInt(s[114], e[78]) & parseInt(a[91], r[88])), m.charAt(l >> u[59] & parseInt("6" + o, a[78])), m.charAt(l & parseInt(a[92], u[113])))
         }
+        return f.join(e[0])
     }
-    function I(n) {
-        try {
-            f.removeItem(n)
-        } catch (t) {}
-    }
-    n[c[85]] = C;
-    function y(n) {
-        try {
-            return f.getItem(n)
-        } catch (t) {
-            return u[86]
-        }
-    }
-    n[c[87]] = B;
-    function _(n, t) {
-        try {
-            f.setItem(n, t)
-        } catch (r) {}
-    }
-    function C() {
-        var n = e[64]
-          , r = u[88];
-        if (i = m(),
-        i)
-            f = a[65][o];
-        else if (l[at(e[66])][at(e[67], a[68])])
-            try {
-                p = new ActiveXObject(Wn(a[69], s[89], l)),
-                p.open(),
-                p.write(s[90]),
-                p.close(),
-                d = p.w[e[70]][s[2]][e[71]],
-                f = d.createElement(n + t + r)
-            } catch (c) {
-                f = l.createElement(o),
-                d = l[Wn(u[91], a[72])] || l.getElementsByTagName(s[92])[s[2]] || l[a[73]]
-            }
-    }
-    function E(n) {
-        return function() {
-            d.appendChild(f),
-            f.addBehavior(s[93]),
-            f.load(o);
-            var t = n();
-            return d.removeChild(f),
-            t
-        }
-    }
-    n[c[94]] = g;
-    function A(n) {
+    for (var m = at(u[115], s[116]), I = {}, y = u[2]; y < parseInt(i + "0", e[93]); y++)
+        I[m.charAt(y)] = y;
+    function O(n) {
         var t, r, e;
-        if (t = r = e = a,
-        i)
-            I(n);
-        else {
-            if (!f)
-                return void e[52];
-            b(n)
+        t = r = e = s;
+        var o, i, u;
+        o = i = u = a;
+        for (var c = ot(i[94]), l = e[2], p = n[o[56]], d = []; l < p; ) {
+            var h = I[n.charAt(l++)] << parseInt(at(t[117]), u[82]) | I[n.charAt(l++)] << parseInt(v(t[118], u[95], e[119]), o[88]) | I[n.charAt(l++)] << t[59] | I[n.charAt(l++)];
+            d.push(h >> parseInt(e[120], t[106]), h >> parseInt(t[121], r[122]) & parseInt(f + b + c, t[106]), h & parseInt(o[96], u[88]))
         }
+        return d
     }
-    function b(n) {
-        E(function() {
-            n = R(n),
-            f.removeAttribute(n),
-            f.save(o)
-        })()
+    function D(n) {
+        var t = O(n);
+        if (rn,
+        p,
+        t[r[52]] != h)
+            return error = T + B + l,
+            void 0;
+        var a = t[c[0]]
+          , o = [];
+        return g(t, +parseInt(e[79], c[122]), o, +u[2], a),
+        x(o) == a ? o : void 0
     }
-    function T(n, t) {
-        E(function() {
-            n = R(n),
-            f.setAttribute(n, t),
-            f.save(o)
-        })()
+    function x(n) {
+        var t = o;
+        t = 0;
+        for (var e = c[2], i = a[52], u = n[c[111]]; i < u; i++)
+            e = (e << s[123]) - e + n[i];
+        return e & parseInt(s[124], r[88])
     }
-    n[a[74]] = A;
-    function B(n, t) {
-        if (void 0 === t)
-            return A(n);
-        if (i)
-            _(n, t);
-        else {
-            if (!f)
-                return void u[2];
-            T(n, t)
-        }
+    function N(n) {
+        // var t = et      注释是应为 t = et 没有作用 因为下面有t = P
+        //   , r = x(n)
+        //   , e = [h, r];
+         var r = x(n)
+          , e = [h, r];
+        return g(n, +a[52], e, +a[88], r),
+        t = "co",
+        w(e)
     }
-    function R(n) {
-        var t = s[95]
-          , e = r[75]
-          , a = new r[47](t + h + e,c[96]);
-        return n.replace(new c[27](u[97]), v(s[98], s[99], s[100])).replace(a, c[101])
-    }
-}(Zn);
+    n["base64Encode"] = w,
+    n["base64Decode"] = O,
+    n[u[125]] = N,
+    n["decode"] = D
+}(zn);
 
-var rt = {}
+var rt = {};
 !function(n) {
-    var t = e[87], o = a[8], i = e[8], f = s[215], l = r[52], p = s[0], d = parseInt(c[216], u[122]), h = e[86], g = u[217], w = u[123], m = e[165], I = parseInt(t + '1', c[122]), y = parseInt(a[79], a[82]), _ = c[218], C = parseInt(a[193], e[82]), E = parseInt(o + i, r[78]), A = parseInt(u[219], s[122]), b = parseInt(f + '5', s[106]), T = parseInt(r[194], s[106]), B = parseInt(ot(s[220], e[195]), r[82]), R = parseInt(e[196], u[122]), k = parseInt(e[197], a[78]), S;
+    var t = e[87], o = a[8], i = e[8], f = s[215], l = r[52], p = s[0], d = parseInt(c[216], u[122]), h = e[86], g = u[217], w = u[123], m = e[165], I = parseInt(t + En, c[122]), y = parseInt(a[79], a[82]), _ = c[218], C = parseInt(a[193], e[82]), E = parseInt(o + i, r[78]), A = parseInt(u[219], s[122]), b = parseInt(f + An, s[106]), T = parseInt(r[194], s[106]), B = parseInt(ot(s[220], e[195]), r[82]), R = parseInt(e[196], u[122]), k = parseInt(e[197], a[78]), S;
+
     function P() {
         var n = s[0]
           , t = r[88]
           , e = parseInt(u[13], c[122])
           , a = s[217];
-        S = new qn([a, a, a, a, n, n, n, e, t, t, t, t, t, t, t, a, t, n]),
-        S[p] = JnServerTimeNow(),
-        M(),
-            console.log(S)
-        // S[B] = Vn,
-        // S[k] = Un,
-        // S[R] = c[2],
-        // S[h] = Jn.strhash(navigator.userAgent),
-        // S[b] = tt.getBrowserFeature(),
-        // S[g] = tt.getPlatform(),
-        // S[w] = tt.getBrowserIndex(),
-        // S[m] = tt.getPluginNum()
+        S = new qn([a, a, a, a, n, n, n, e, t, t, t, t, t, t, t, a, t, n]);
+        S[p] = parseInt(TOKEN_SERVER_TIME);
+        M();
+        S[B] = 0;
+        S[k] = 3;
+        S[R] = c[2];
+        S[h] = JnStrhash();
+        S[b] = 3620
+        S[g] = 1;
+        S[w] = 10;
+        S[m] = 5;
     }
     P()
     function M() {
-        var n = Qn.getCookie("v") || Zn.get("hexin-v");
-        if (n && n[s[111]] == parseInt(c[221], e[93])) {
-            var t = zn.decode(n);
-            if (t && (S.decodeBuffer(t),
-            S[l] != s[2]))
-                return
-        }
-        S[l] = Jn.random()
+        S[l] = Math.random() * parseInt(u[141], r[78]) >>> r[52]
     }
-    // function O() {
-    //     S[R]++,
-    //     S[p] = Jn.serverTimeNow(),
-    //     S[d] = Jn.timeNow(),
-    //     S[B] = Vn,
-    //     S[I] = nt.getMouseMove(),
-    //     S[y] = nt.getMouseClick(),
-    //     S[_] = nt.getMouseWhell(),
-    //     S[C] = nt.getKeyDown(),
-    //     S[E] = nt.getClickPos().x,
-    //     S[A] = nt.getClickPos().y;
-    //     var n = S.toBuffer();
-    //     return zn.encode(n)
-    // }
-    // n[e[57]] = P;
-    // function D() {
-    //     return O()
-    // }
-    // n[v('ve', a[198], r[199])] = D
+    function O() {
+        S[R]++,
+        S[p] = parseInt(TOKEN_SERVER_TIME);
+        S[d] = JnTimeNow(),
+        S[B] = 0,
+        S[I] = 0,
+        S[y] = 0,
+        S[_] = 0,
+        S[C] = 0,
+        S[E] = 0,
+        S[A] = 0;
+        var n = S.toBuffer();
+        return zn.encode(n)
+    }
+    n[e[57]] = P;
+    function D() {
+        return O()
+    }
+    n[v('ve', a[198], r[199])] = D
 }(rt);
+
 // rt.update()
 
